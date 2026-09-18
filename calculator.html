@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Path Calculator | Anna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+
+            <a href="index.html" class="text-2xl font-bold text-red-900">
+                Anna.
+            </a>
+
+            <div class="flex flex-wrap gap-4 text-sm font-medium">
+
+                <a href="index.html" class="hover:text-red-900">
+                    Home
+                </a>
+
+                <a href="about.html" class="hover:text-red-900">
+                    About
+                </a>
+
+                <a href="projects.html" class="hover:text-red-900">
+                    Projects
+                </a>
+
+                <a href="contact.html" class="hover:text-red-900">
+                    Contact
+                </a>
+
+                <a href="todo.html" class="hover:text-red-900">
+                    To-Do List
+                </a>
+
+                <a href="calculator.html" class="text-red-900">
+                    Life Path
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-xl mx-auto px-6 py-16">
+
+        <h1 class="text-4xl font-bold text-center mb-4">
+            Life Path Calculator
+        </h1>
+
+        <p class="text-center text-slate-600 mb-10">
+            Masukkan tanggal lahir untuk menghitung angka Life Path.
+        </p>
+
+        <div class="bg-white rounded-2xl shadow-sm p-8">
+
+            <label for="birthDate" class="block font-medium mb-2">
+                Tanggal Lahir
+            </label>
+
+            <input
+                type="date"
+                id="birthDate"
+                class="w-full border border-slate-300 rounded-lg px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-red-900"
+            >
+
+            <button
+                id="calculateButton"
+                class="w-full bg-red-900 text-white py-3 rounded-lg hover:bg-red-950 transition">
+                Hitung Life Path
+            </button>
+
+            <div
+                id="result"
+                class="hidden mt-8 text-center bg-red-50 rounded-xl p-6">
+
+                <p class="text-sm text-slate-600 mb-2">
+                    Life Path Number kamu adalah
+                </p>
+
+                <p
+                    id="lifePathNumber"
+                    class="text-6xl font-bold text-red-900 mb-4">
+                </p>
+
+                <h2
+                    id="lifePathTitle"
+                    class="text-xl font-bold mb-3">
+                </h2>
+
+                <p
+                    id="lifePathDescription"
+                    class="text-slate-600 leading-relaxed">
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-red-950 text-white text-center py-6">
+        <p>&copy; 2026 Anna Maria.</p>
+    </footer>
+
+    <script src="js/calculator.js"></script>
+
+</body>
+</html>
