@@ -1,113 +1,43 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Path Calculator | Anna</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<script>
+const birthDate = document.getElementById("birthDate");
+const calculateButton = document.getElementById("calculateButton");
+const result = document.getElementById("result");
+const lifePathNumber = document.getElementById("lifePathNumber");
+const lifePathTitle = document.getElementById("lifePathTitle");
+const lifePathDescription = document.getElementById("lifePathDescription");
 
-<body class="bg-slate-50 text-slate-800">
+const lifePathData = {
+    1: ["The Leader", "Angka 1 sering dikaitkan dengan kemandirian, keberanian, dan jiwa kepemimpinan."],
+    2: ["The Peacemaker", "Angka 2 sering dikaitkan dengan kerja sama, kepekaan, dan kemampuan menjaga hubungan."],
+    3: ["The Creative", "Angka 3 sering dikaitkan dengan kreativitas, ekspresi diri, dan kemampuan berkomunikasi."],
+    4: ["The Builder", "Angka 4 sering dikaitkan dengan kedisiplinan, kestabilan, dan kerja keras."],
+    5: ["The Adventurer", "Angka 5 sering dikaitkan dengan kebebasan, perubahan, rasa ingin tahu, dan petualangan."],
+    6: ["The Nurturer", "Angka 6 sering dikaitkan dengan kepedulian, tanggung jawab, dan keharmonisan."],
+    7: ["The Seeker", "Angka 7 sering dikaitkan dengan pemikiran mendalam, introspeksi, dan pencarian pengetahuan."],
+    8: ["The Achiever", "Angka 8 sering dikaitkan dengan ambisi, manajemen, pencapaian, dan orientasi pada tujuan."],
+    9: ["The Humanitarian", "Angka 9 sering dikaitkan dengan empati, kepedulian terhadap sesama, dan idealisme."],
+    11: ["The Intuitive", "Angka 11 dalam numerologi sering disebut master number dan dikaitkan dengan intuisi serta inspirasi."],
+    22: ["The Master Builder", "Angka 22 sering disebut master number dan dikaitkan dengan kemampuan membangun sesuatu yang besar dan terstruktur."],
+    33: ["The Master Teacher", "Angka 33 sering disebut master number dan dikaitkan dengan kasih sayang, pelayanan, dan inspirasi."]
+};
 
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+calculateButton.addEventListener("click", function() {
+    if (!birthDate.value) {
+        alert("Silakan masukkan tanggal lahir terlebih dahulu!");
+        return;
+    }
 
-            <a href="index.html" class="text-2xl font-bold text-red-900">
-                Anna.
-            </a>
+    let digits = birthDate.value.replace(/-/g, "").split("").map(Number);
+    let total = digits.reduce((sum, digit) => sum + digit, 0);
 
-            <div class="flex flex-wrap gap-4 text-sm font-medium">
+    while (total > 9 && total !== 11 && total !== 22 && total !== 33) {
+        total = total.toString().split("").map(Number).reduce((sum, digit) => sum + digit, 0);
+    }
 
-                <a href="index.html" class="hover:text-red-900">
-                    Home
-                </a>
+    lifePathNumber.textContent = total;
+    lifePathTitle.textContent = lifePathData[total][0];
+    lifePathDescription.textContent = lifePathData[total][1];
 
-                <a href="about.html" class="hover:text-red-900">
-                    About
-                </a>
-
-                <a href="projects.html" class="hover:text-red-900">
-                    Projects
-                </a>
-
-                <a href="contact.html" class="hover:text-red-900">
-                    Contact
-                </a>
-
-                <a href="todo.html" class="hover:text-red-900">
-                    To-Do List
-                </a>
-
-                <a href="calculator.html" class="text-red-900">
-                    Life Path
-                </a>
-
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-xl mx-auto px-6 py-16">
-
-        <h1 class="text-4xl font-bold text-center mb-4">
-            Life Path Calculator
-        </h1>
-
-        <p class="text-center text-slate-600 mb-10">
-            Masukkan tanggal lahir untuk menghitung angka Life Path.
-        </p>
-
-        <div class="bg-white rounded-2xl shadow-sm p-8">
-
-            <label for="birthDate" class="block font-medium mb-2">
-                Tanggal Lahir
-            </label>
-
-            <input
-                type="date"
-                id="birthDate"
-                class="w-full border border-slate-300 rounded-lg px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-red-900"
-            >
-
-            <button
-                id="calculateButton"
-                class="w-full bg-red-900 text-white py-3 rounded-lg hover:bg-red-950 transition">
-                Hitung Life Path
-            </button>
-
-            <div
-                id="result"
-                class="hidden mt-8 text-center bg-red-50 rounded-xl p-6">
-
-                <p class="text-sm text-slate-600 mb-2">
-                    Life Path Number kamu adalah
-                </p>
-
-                <p
-                    id="lifePathNumber"
-                    class="text-6xl font-bold text-red-900 mb-4">
-                </p>
-
-                <h2
-                    id="lifePathTitle"
-                    class="text-xl font-bold mb-3">
-                </h2>
-
-                <p
-                    id="lifePathDescription"
-                    class="text-slate-600 leading-relaxed">
-                </p>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer class="bg-red-950 text-white text-center py-6">
-        <p>&copy; 2026 Anna Maria.</p>
-    </footer>
-
-    <script src="js/calculator.js"></script>
-
-</body>
-</html>
+    result.classList.remove("hidden");
+});
+</script>
