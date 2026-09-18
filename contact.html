@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-stone-50 text-slate-800">
 
     <nav class="bg-white shadow-sm">
         <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3">
@@ -38,10 +38,10 @@
                     To-Do List
                 </a>
 
-
                 <a href="calculator.html" class="hover:text-red-900">
-    Calculator
-</a>
+                    Life Path
+                </a>
+
             </div>
         </div>
     </nav>
@@ -56,8 +56,13 @@
             Silakan isi formulir di bawah ini.
         </p>
 
-        <form class="bg-white rounded-2xl shadow-sm p-8 space-y-5"
-              onsubmit="return false;">
+        <form
+            action="https://formsubmit.co/EMAILKAMU"
+            method="POST"
+            class="bg-white rounded-2xl shadow-sm p-8 space-y-5">
+
+            <input type="hidden" name="_subject" value="Pesan dari Portfolio Anna">
+            <input type="hidden" name="_captcha" value="false">
 
             <div>
                 <label class="block font-medium mb-2" for="name">
@@ -67,7 +72,9 @@
                 <input
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Masukkan nama kamu"
+                    required
                     class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-900"
                 >
             </div>
@@ -80,7 +87,9 @@
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Masukkan email kamu"
+                    required
                     class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-900"
                 >
             </div>
@@ -92,15 +101,17 @@
 
                 <textarea
                     id="message"
+                    name="message"
                     rows="5"
                     placeholder="Tulis pesan kamu..."
+                    required
                     class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-900"
                 ></textarea>
             </div>
 
             <button
                 type="submit"
-                class="w-full bg-red-900 text-white py-3 rounded-lg hover:bg-red-950">
+                class="w-full bg-red-900 text-white py-3 rounded-lg hover:bg-red-950 transition">
                 Kirim Pesan
             </button>
 
